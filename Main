@@ -1,0 +1,40 @@
+#include <iostream>
+#include "Pedido.h"
+#include "MesaDeRestaurante.h"
+#include "RestauranteCaseiro.h"
+#include <string>
+
+using namespace std;
+
+int main()
+{
+    int num1, qtd1,num2,qtd2;
+    std::string minhadesc1,minhadesc2;
+    double preco1,preco2;
+    cout << "Digite o Numero do Pedido, a Quantidade, Preco e a Descricao: " << endl;
+    cin>>num1>>qtd1>>preco1>>minhadesc1;
+    cout << "Novamente, Digite o Numero do Pedido, a Quantidade, Preco e a Descricao: " << endl;
+    cin>>num2>>qtd2>>preco2>>minhadesc2;
+
+    Pedido pedido1 = Pedido();
+    pedido1.setNumero(num1);
+    pedido1.setQuantidade(qtd1);
+    pedido1.setPreco(preco1);
+    pedido1.setDescricao(minhadesc1);
+
+    Pedido pedido2 = Pedido();
+    pedido2.setNumero(num2);
+    pedido2.setQuantidade(qtd2);
+    pedido2.setPreco(preco2);
+    pedido2.setDescricao(minhadesc2);
+
+   /* MesaDeRestaurante mesasimples = MesaDeRestaurante();
+    mesasimples.adicionaAoPedido(pedido1);*/
+
+    RestauranteCaseiro rest;
+    rest.adicionaAoPedido(1,pedido1);
+    rest.adicionaAoPedido(2,pedido2);
+
+    cout<<"Valor:"<<rest.calculaTotalRestaurante()<<endl;
+    return 0;
+}
